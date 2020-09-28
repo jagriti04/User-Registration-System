@@ -6,18 +6,26 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 	
-	public void validateName(String fName, String type) {  		// same for first and last name
-		
+	public void validateName(String name) {
 		String patternString = "(^[A-Z])[A-Za-z]{2,}$";
+		regexMatch(name, patternString);
+	}
+	
+	public void validateEmail(String email) {
+		String patternString = "^(abc)(.[a-zA-Z0-9+_-]{1})[a-zA-Z0-9+_-]*([@][a-zA-Z0-9]{1,})*([.][a-zA-Z]{2,4}([.][a-zA-Z]{2}){0,1})$";
+		regexMatch(email, patternString);
+	}
+	
+	public static void regexMatch(String matchContent, String patternString) {  	
 		Pattern pattern = Pattern.compile(patternString);
-	    Matcher matcher = pattern.matcher(fName);
+	    Matcher matcher = pattern.matcher(matchContent);
 	    boolean isMatch = matcher.find();
 	    
 		System.out.println(isMatch);
 		if (isMatch) {
-			System.out.println(type+ " name is valid");
+			System.out.println(matchContent+ " is valid");
 		} else {
-			System.out.println(type + " name is not valid");
+			System.out.println(matchContent + " is not valid");
 		}			
 	}
 	
@@ -28,11 +36,14 @@ public class UserRegistration {
 		UserRegistration userReg = new UserRegistration();
 		System.out.println("Enter the first name");
 		String fName = sc.nextLine();
-		userReg.validateName(fName, "First");
+		userReg.validateName(fName);
 		
 		System.out.println("Enter the last name");
 		String lName = sc.nextLine();
-		userReg.validateName(lName, "Last");
+		userReg.validateName(lName);
 		
+		System.out.println("Enter the email");
+		String email = sc.nextLine();
+		userReg.validateEmail(email);
 	}
 }
