@@ -6,18 +6,18 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 	
-	public void validateFirstName(String fName) {
+	public void validateName(String fName, String type) {  		// same for first and last name
 		
-		String patternString = "(^[A-Z])[A-Za-z]{3,}$";
+		String patternString = "(^[A-Z])[A-Za-z]{2,}$";
 		Pattern pattern = Pattern.compile(patternString);
 	    Matcher matcher = pattern.matcher(fName);
 	    boolean isMatch = matcher.find();
 	    
 		System.out.println(isMatch);
 		if (isMatch) {
-			System.out.println("first name is valid");
+			System.out.println(type+ " name is valid");
 		} else {
-			System.out.println("first name is not valid");
+			System.out.println(type + " name is not valid");
 		}			
 	}
 	
@@ -28,8 +28,11 @@ public class UserRegistration {
 		UserRegistration userReg = new UserRegistration();
 		System.out.println("Enter the first name");
 		String fName = sc.nextLine();
-		userReg.validateFirstName(fName);
+		userReg.validateName(fName, "First");
 		
+		System.out.println("Enter the last name");
+		String lName = sc.nextLine();
+		userReg.validateName(lName, "Last");
 		
 	}
 }
