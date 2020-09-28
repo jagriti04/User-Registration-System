@@ -16,6 +16,11 @@ public class UserRegistration {
 		regexMatch(email, patternString);
 	}
 	
+	public void validateMobile(String mobileNum) {
+		String patternString = "^([0-9]{2})[\\s]([0-9]{10})";
+		regexMatch(mobileNum, patternString);
+	}
+	
 	public static void regexMatch(String matchContent, String patternString) {  	
 		Pattern pattern = Pattern.compile(patternString);
 	    Matcher matcher = pattern.matcher(matchContent);
@@ -45,5 +50,9 @@ public class UserRegistration {
 		System.out.println("Enter the email");
 		String email = sc.nextLine();
 		userReg.validateEmail(email);
+		
+		System.out.println("Enter the mobile num.");
+		String mobileNum = sc.nextLine();
+		userReg.validateMobile(mobileNum);
 	}
 }
