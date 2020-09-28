@@ -20,6 +20,10 @@ public class UserRegistration {
 		String patternString = "^([0-9]{2})[\\s]([0-9]{10})";
 		regexMatch(mobileNum, patternString);
 	}
+	public void validatePassword(String password) {
+		String patternString = "^.{8,}$";
+		regexMatch(password, patternString);
+	}
 	
 	public static void regexMatch(String matchContent, String patternString) {  	
 		Pattern pattern = Pattern.compile(patternString);
@@ -54,5 +58,9 @@ public class UserRegistration {
 		System.out.println("Enter the mobile num.");
 		String mobileNum = sc.nextLine();
 		userReg.validateMobile(mobileNum);
+		
+		System.out.println("Enter the password");
+		String password = sc.nextLine();
+		userReg.validatePassword(password);
 	}
 }
