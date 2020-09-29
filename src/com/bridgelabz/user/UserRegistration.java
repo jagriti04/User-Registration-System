@@ -12,7 +12,7 @@ public class UserRegistration {
 	}
 	
 	public void validateEmail(String email) {
-		String patternString = "^(abc)(.[a-zA-Z0-9+_-]{1})[a-zA-Z0-9+_-]*([@][a-zA-Z0-9]{1,})*([.][a-zA-Z]{2,4}([.][a-zA-Z]{2}){0,1})$";
+		String patternString = "^[a-zA-z]{1}([.]{0,1}[a-zA-z0-9+-]{1,}){0,}[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-z]{2,3}([.]{1}[a-z]{2}){0,1}$";
 		regexMatch(email, patternString);
 	}
 	
@@ -21,7 +21,7 @@ public class UserRegistration {
 		regexMatch(mobileNum, patternString);
 	}
 	public void validatePassword(String password) {
-		String patternString = "^.{8,}$";
+		String patternString = "[A-Z]{1,}{7,}";
 		regexMatch(password, patternString);
 	}
 	
@@ -43,21 +43,21 @@ public class UserRegistration {
 		System.out.println("Welcome to the user registration system");
 		
 		UserRegistration userReg = new UserRegistration();
-		System.out.println("Enter the first name");
-		String fName = sc.nextLine();
-		userReg.validateName(fName);
-		
-		System.out.println("Enter the last name");
-		String lName = sc.nextLine();
-		userReg.validateName(lName);
-		
-		System.out.println("Enter the email");
-		String email = sc.nextLine();
-		userReg.validateEmail(email);
-		
-		System.out.println("Enter the mobile num.");
-		String mobileNum = sc.nextLine();
-		userReg.validateMobile(mobileNum);
+//		System.out.println("Enter the first name");
+//		String fName = sc.nextLine();
+//		userReg.validateName(fName);
+//		
+//		System.out.println("Enter the last name");
+//		String lName = sc.nextLine();
+//		userReg.validateName(lName);
+//		
+//		System.out.println("Enter the email");
+//		String email = sc.nextLine();
+//		userReg.validateEmail(email);
+//		
+//		System.out.println("Enter the mobile num.");
+//		String mobileNum = sc.nextLine();
+//		userReg.validateMobile(mobileNum);
 		
 		System.out.println("Enter the password");
 		String password = sc.nextLine();
