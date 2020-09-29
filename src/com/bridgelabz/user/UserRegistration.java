@@ -21,7 +21,7 @@ public class UserRegistration {
 		regexMatch(mobileNum, patternString);
 	}
 	public void validatePassword(String password) {
-		String patternString = "^(?=.*\\d)(?=.*[A-Z]).{8,}$";
+		String patternString = "^(?=.*\\d)(?=[^!@#$%^&*()_+=]*[!@#$%^&*()_+=][^!@#$%^&*()_+=]*$)(?=.*[A-Z]).{8,}$";
 		regexMatch(password, patternString);
 	}
 	
